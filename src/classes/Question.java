@@ -26,7 +26,6 @@ public class Question {
             setAnswer(this.DEFAULT_CITY);
             return;
         }
-
         setAnswer(newAnswer);
     }
 
@@ -38,9 +37,9 @@ public class Question {
             File file = new File(this.filePath);
             Scanner in = new Scanner(file);
 
-            while (indexAt != counter && in.hasNext()) {
+            while (indexAt != counter && in.hasNextLine()) {
                 counter++;
-                String currCity = in.next();
+                String currCity = in.nextLine();
                 if (indexAt == counter) return currCity;
             }
         } catch (FileNotFoundException e) {
